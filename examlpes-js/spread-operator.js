@@ -100,3 +100,10 @@ const q = {
 };
 
 const newObj = { ...q };
+
+let a = 5;
+
+for (let i = 1; i <= 3; i++) {
+  a = a * 2;
+}
+console.log(a);
