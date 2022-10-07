@@ -1,72 +1,27 @@
-const dangeonDB = {
-  slaves: "danil",
-  jabronies: 7,
-  fuckingSlaves: 300,
-  masters: {
-    billy: "Aniki",
-    van: "vanDarkHolm",
+const personalPlanPeter = {
+  name: "Peter",
+  age: "29",
+  skills: {
+    languages: ["ru", "eng"],
+    programmingLangs: {
+      js: "20%",
+      php: "10%",
+    },
+    exp: "1 month",
   },
 };
 
-console.log(dangeonDB.masters);
-delete dangeonDB.fuckingSlaves;
-console.log(dangeonDB);
+// console.log(personalPlanPeter.skills.exp);
 
-for (const key in dangeonDB) {
-  if (typeof dangeonDB[key] === "object") {
-    for (let i in dangeonDB[key]) {
-      console.log(`Свойство - ${i} имеет значение - ${dangeonDB[key][i]}`);
+function showExperience(plan) {
+  for (let key in personalPlanPeter) {
+    if (typeof personalPlanPeter[key] === "object") {
+      for (let i = 0; i < personalPlanPeter[key]; i++) {
+        console.log(`Свойство ${key} имеет значение ${key[i]}`);
+      }
+    } else {
+      console.log(`Свойство ${key} имеет значение ${personalPlanPeter[key]}`);
     }
-  } else {
-    console.log(`Свойство - ${key} имеет значение - ${dangeonDB[key]}`);
   }
 }
-
-//  example
-
-const gymDB = {
-  slaves: 1,
-  jabronies: 2,
-  masters: {
-    mastersFull: "Aniki",
-    mastersDangeon: "Van",
-  },
-  bosses: {
-    bossOfTheGym: "Billy",
-    dangeonMasters: "VanDarkHolme",
-  },
-};
-console.log(gymDB.slaves);
-
-let counter = 0;
-for (const key in gymDB) {
-  if (typeof gymDB[key] === "object") {
-    for (const i in gymDB[key]) {
-      console.log(
-        `Заныкались в fisting room ${i} такие перцы как ${gymDB[key][i]}`,
-        counter++
-      );
-    }
-  } else {
-    console.log(`Поситители ${key} в данжион ${gymDB[key]}`);
-    counter++;
-  }
-}
-console.log(counter);
-
-// Методы объектов
-const fuckinSlave = {
-  jabronies: "3",
-  slaves: 2,
-  masters: {
-    bossofGym: "Aniki",
-    dangeonMasters: "VanDarkHolme",
-  },
-  makeSlaves: function () {
-    console.log("Fuck YOU!!!!");
-  },
-};
-fuckinSlave.makeSlaves();
-console.log(Object.keys(fuckinSlave));
-const { bossofGym, dangeonMasters } = fuckinSlave.masters;
-console.log(bossofGym);
+showExperience();
