@@ -9,19 +9,35 @@ const personalPlanPeter = {
     },
     exp: "1 month",
   },
-};
+  showAgeAndLangs: function (plan) {
+    const { age } = plan;
+    const { languages } = plan.skills;
+    let str = `Мне ${age} и я владею языками: `;
 
-// console.log(personalPlanPeter.skills.exp);
+    languages.forEach(function (lang) {
+      str += `${lang.toUpperCase()}`;
+    });
+
+    return str;
+  },
+};
+personalPlanPeter.showAgeAndLangs(personalPlanPeter);
 
 function showExperience(plan) {
-  for (let key in personalPlanPeter) {
-    if (typeof personalPlanPeter[key] === "object") {
-      for (let i = 0; i < personalPlanPeter[key]; i++) {
-        console.log(`Свойство ${key} имеет значение ${key[i]}`);
-      }
-    } else {
-      console.log(`Свойство ${key} имеет значение ${personalPlanPeter[key]}`);
-    }
-  }
+  let str = "";
+  const { exp } = plan.skills;
+  str = exp;
+  return str;
 }
-showExperience();
+showExperience(personalPlanPeter);
+
+function showProgrammingLangs(plan) {
+  let str = "";
+  const { programmingLangs } = plan.skills;
+  for (let key in programmingLangs) {
+    str += `Язык ${key} изучен на ${programmingLangs[key]}\n`;
+  }
+
+  return str;
+}
+showProgrammingLangs(personalPlanPeter);

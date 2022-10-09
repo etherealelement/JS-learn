@@ -1,68 +1,33 @@
-'use strict'
+const family = ["Peter", "Ann", "Alex", "Linda"];
 
-const slavesArr = [300, 200, 100, 50];
-// slavesArr[99] = 0;  // 100 потому что индекс элемента + 1 = 100
-// console.log(slavesArr.length);  //индекс элемента считается конец элемента + 1
-// console.log(slavesArr);
+function showFamily(arr) {
+  let str = "";
+  arr.lenght === 0 ? (str = "Семья пуста") : (str = "Семья состоит из: ");
 
-// Метод foreach
-slavesArr.forEach(
-    function name(backs, i , slavesArr) { // 3 аргумента 1.pзначение агрумента внутри массива . 2. счестчик номер по порядку, 3 ссылка на массив который надо перебрать.
-        console.log(`${i}: ${backs} внутри массива  ${slavesArr} `);
-    }
-); // работает только в виде callback функции
-
-// методы работающие с концом массива.
-
-slavesArr.pop();  // удаляет последний элемент массива.
-console.log(slavesArr);
-slavesArr.push("300$"); // добавляет элемент который будет пушиться в конец массива.
-console.log(slavesArr);
-
-// Методы перебора массива
-// Цикл for 
-
-for (let i = 0; i < slavesArr.length; i++)  {
-    console.log(slavesArr[i]);
+  arr.forEach((item) => {
+    str += `${item} `;
+  });
+  return str;
 }
+showFamily(family);
 
-//  for of 
+const favoriteCities = ["liSBon", "ROME", "miLan", "Dublin"];
 
-for (const fist of slavesArr) {
-    console.log(fist); //выводить в консоль элемент
+function standardizeStrings(arr) {
+  arr.forEach((items) => {
+    console.log(items.toLowerCase());
+  });
 }
+standardizeStrings(favoriteCities);
 
-// example 
+//
+const someString = "This is some strange string";
 
-const dangeonArr = ['billy','van','slaves','jabronies'];
-dangeonArr.forEach(function fuckyou(fingers, i, dangeonArr) {
-    console.log(`${i}: ${fingers} внутри массива ${dangeonArr}`);
-});
+function reverse(str) {
+  if (typeof str !== "string") {
+    return "Ошибка!";
+  }
 
-
-dangeonArr.push('fuckingslaves');
-console.log(dangeonArr);
-
-for (const i of dangeonArr) {
-    console.log(i);
+  return str.split("").reverse().join("");
 }
-
-for (let i = 0; i < dangeonArr.length; i++) {
-    console.log(dangeonArr[i]);
-    
-}
-
-const dangeonShop = prompt("", ""); 
-const dangeonProducts = dangeonShop.split(", "); // одинарные КОВЫЧКИ
-dangeonProducts.sort(); //сортирует массив как строки по алфавиту
-console.log(dangeonProducts.join(';')); //обьединение элементов массива
-
-const num = [2, 6, 9, 12];
-num.sort();
-console.log(num);
-
-function compareNum(a, b) { // 2 числа которые сравниваются 
-    return a - b;
-}
-
-// псевдомассив - объект структура которого совпадает со структурой объекта но в нем не будет МЕТОДОВ.
+reverse(someString);
